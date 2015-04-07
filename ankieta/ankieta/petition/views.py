@@ -1,7 +1,6 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from django.core.urlresolvers import reverse
-from braces.views import SetHeadlineMixin
 from braces.views import OrderableListMixin
 from .models import Signature
 from .forms import SignatureForm
@@ -25,7 +24,7 @@ class SignatureList(OrderableListMixin, ListView):
         return qs.visible()
 
 
-class SignatureCreate(SetHeadlineMixin, CreateView):
+class SignatureCreate(CreateView):
     model = Signature
     form_class = SignatureForm
 
