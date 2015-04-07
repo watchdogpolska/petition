@@ -1,0 +1,40 @@
+{% extends 'petition/base.html' %}
+{% block main %}
+{% if object_list %}
+<table class="table table-striped">
+    <tr>
+        <th>ID {% include 'petition/_links_sort.html' with column='pk'%}</th>
+        <th>Name{% include 'petition/_links_sort.html' with column='name'%}</th>
+        <th>City{% include 'petition/_links_sort.html' with column='city'%}</th>
+    </tr>
+    {% for object in object_list %}
+    <tr>
+        <td>{{object.pk}} 
+        </td>
+        <td>{{object.name}}</td>
+        <td>{{object.city}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if page_obj.has_previous or page_obj.has_next %}
+<nav>
+    <ul class="pager">
+    {% if page_obj.has_previous %}
+        <li><a href="?order_by={{order_by}}&ordering={{ordering}}&page={{page.previous_page_number}}">previous</a></li>
+    {% endif %}
+    <li>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</li>
+    {% if page_obj.has_next %}
+        <li><a href="?order_by={{order_by}}&ordering={{ordering}}&page={{page_obj.next_page_number}}">next</a></li>
+    {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+{% endif%}
+{% endblock %}
+
+{% block form %}
+<span>There is <span class="label label-warning">{{count}}</span> signatures</span>
+{{block.super}}
+{% endblock %}

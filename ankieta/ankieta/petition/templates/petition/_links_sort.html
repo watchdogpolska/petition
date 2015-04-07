@@ -1,0 +1,11 @@
+{% if order_by != column or ordering != 'asc' %}
+[<a href="?order_by={{column}}&ordering=asc">ASC</a>]
+{% else %}
+[ASC]
+{% endif %}
+
+{% if order_by != column or ordering != 'desc' %}
+[<a href="?order_by={{column}}&ordering=desc">DESC</a>]
+{% else %}
+[DESC]
+{% endif %}
