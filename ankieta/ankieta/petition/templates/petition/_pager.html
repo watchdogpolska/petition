@@ -1,0 +1,13 @@
+{% if page_obj.has_previous or page_obj.has_next %}
+<nav>
+    <ul class="pager">
+        {% if page_obj.has_previous %}
+        <li><a href="?order_by={{order_by}}&ordering={{ordering}}&page={{page.previous_page_number}}">previous</a></li>
+        {% endif %}
+        <li>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</li>
+        {% if page_obj.has_next %}
+        <li><a href="?order_by={{order_by}}&ordering={{ordering}}&page={{page_obj.next_page_number}}">next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
