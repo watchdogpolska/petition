@@ -1,1 +1,8 @@
 {% extends 'base.html' %}
+{% block navbar-li %}
+<li><a href="{% url 'petition:list' %}">Podpisali się</a></li>
+<li><a href="/kontakt">Kontakt</a></li> {# TODO: Flatpages #}
+<li><a href="/media">Dla mediów</a></li>
+<li><a href="{% url 'petition:create' %}">Podpisz</a></li>
+
+{% endblock %}
