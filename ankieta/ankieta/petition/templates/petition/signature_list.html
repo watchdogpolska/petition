@@ -1,9 +1,10 @@
 {% extends 'petition/base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags webdesign %}
 {% block content %}
 <div class="row">
     <div class="col-xs-9">
         {% if object_list %}
+        <h2>Have already signed</h2>
         <table class="table table-striped">
             <tr>
                 <th>ID{% include 'petition/_links_sort.html' with column='pk'%}</th>
@@ -24,8 +25,7 @@
     </div>
     <div class="col-xs-3">
         <span>There is <span class="label label-warning">{{count}}</span> signatures</span>
-        {{block.super}}
-        {% crispy form %}
+        {% lorem 2 p %}
     </div>
 </div>
 

@@ -1,5 +1,15 @@
 {% extends 'petition/base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags webdesign %}
 {% block content %}
-{% crispy form %}
+<div class="row">
+    <div class="col-xs-8">
+    <div class="flex-video widescreen text-center">
+    <iframe allowfullscreen="" src="http://www.youtube.com/embed/zk5qO5eexcU" frameborder="0"></iframe>
+    </div>
+        {% lorem 5 p %}
+    </div>
+    <div class="col-xs-4">
+        {% crispy form %}
+    </div>
+</div>
 {% endblock %}
