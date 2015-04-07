@@ -1,11 +1,11 @@
 {% if order_by != column or ordering != 'asc' %}
-[<a href="?order_by={{column}}&ordering=asc">ASC</a>]
+<a href="?order_by={{column}}&amp;ordering=asc"><span class="glyphicon glyphicon-sort-by-alphabet"></span></a>
 {% else %}
-[ASC]
+<span class="glyphicon glyphicon-sort-by-alphabet"></span>
 {% endif %}
 
 {% if order_by != column or ordering != 'desc' %}
-[<a href="?order_by={{column}}&ordering=desc">DESC</a>]
+<a href="?order_by={{column}}&amp;ordering=desc"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></a>
 {% else %}
-[DESC]
+<span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
 {% endif %}
