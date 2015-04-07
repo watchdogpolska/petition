@@ -1,13 +1,1 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
-<div class="row">
-<div class="col-xs-9">
-{% block main %}{% endblock %}
-</div>
-<div class="col-xs-3">
-{% block form %}{% crispy form %}{% endblock %}
-</div>
-</div>
-
-{% endblock %}
