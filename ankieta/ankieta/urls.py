@@ -30,4 +30,5 @@ urlpatterns = patterns('',
 
     # Your stuff: custom urls go here
     url(r'^', include('petition.urls', namespace='petition')),
+    url('^pages/', include('django.contrib.flatpages.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
