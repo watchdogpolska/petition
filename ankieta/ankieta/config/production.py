@@ -27,26 +27,26 @@ class Production(Common):
     # END SECRET KEY
 
     # django-secure
-    INSTALLED_APPS += ("djangosecure", )
+    # INSTALLED_APPS += ("djangosecure", )
 
     # MIDDLEWARE CONFIGURATION
-    MIDDLEWARE_CLASSES = (
-        # Make sure djangosecure.middleware.SecurityMiddleware is listed first
-        'djangosecure.middleware.SecurityMiddleware',
-    )
+    # MIDDLEWARE_CLASSES = (
+    # Make sure djangosecure.middleware.SecurityMiddleware is listed first
+    #     'djangosecure.middleware.SecurityMiddleware',
+    # )
 
-    MIDDLEWARE_CLASSES += Common.MIDDLEWARE_CLASSES
+    # MIDDLEWARE_CLASSES += Common.MIDDLEWARE_CLASSES
     # END MIDDLEWARE CONFIGURATION
 
     # set this to 60 seconds and then to 518400 when you can prove it works
-    SECURE_HSTS_SECONDS = 60
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = values.BooleanValue(True)
-    SECURE_FRAME_DENY = values.BooleanValue(True)
-    SECURE_CONTENT_TYPE_NOSNIFF = values.BooleanValue(True)
-    SECURE_BROWSER_XSS_FILTER = values.BooleanValue(True)
-    SESSION_COOKIE_SECURE = values.BooleanValue(False)
-    SESSION_COOKIE_HTTPONLY = values.BooleanValue(True)
-    SECURE_SSL_REDIRECT = values.BooleanValue(True)
+    # SECURE_HSTS_SECONDS = 60
+    # SECURE_HSTS_INCLUDE_SUBDOMAINS = values.BooleanValue(True)
+    # SECURE_FRAME_DENY = values.BooleanValue(True)
+    # SECURE_CONTENT_TYPE_NOSNIFF = values.BooleanValue(True)
+    # SECURE_BROWSER_XSS_FILTER = values.BooleanValue(True)
+    # SESSION_COOKIE_SECURE = values.BooleanValue(False)
+    # SESSION_COOKIE_HTTPONLY = values.BooleanValue(True)
+    # SECURE_SSL_REDIRECT = values.BooleanValue(True)
     # end django-secure
 
     # SITE CONFIGURATION
