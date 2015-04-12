@@ -7,23 +7,7 @@ from django.core.urlresolvers import reverse
 from .models import Signature
 
 
-class ReadonlyMixin(object):
-    def __init__(self, *args, **kwargs):
-        super(ReadonlyMixin, self).__init__(*args, **kwargs)
-        self.attrs['readonly'] = True
-
-
-class ReadonlyTextarea(ReadonlyMixin, forms.Textarea):
-    pass
-
-
-class ReadonlyTextInput(ReadonlyMixin, forms.TextInput):
-    pass
-
-
 class SignatureForm(UserKwargModelFormMixin, ModelForm):
-    recipient = forms.CharField(widget=ReadonlyTextInput(), initial="A")
-    petition = forms.CharField(widget=ReadonlyTextarea(), initial="A", label="Petition")
     giodo = forms.BooleanField(widget=forms.CheckboxInput(), required=True,
                                label="We want process you ID data. Do you accept it?")
     newsletter = forms.BooleanField(widget=forms.CheckboxInput(), required=True,
@@ -34,9 +18,8 @@ class SignatureForm(UserKwargModelFormMixin, ModelForm):
         self.helper = FormHelper()
         self.helper.form_action = reverse('petition:create')
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.add_input(Submit('submit', 'Submit', css_class="btn-lg btn-block"))
 
     class Meta:
         model = Signature
-        fields = ['recipient', 'petition', 'name', 'email', 'city',
-                  'telephone', 'location', 'lat', 'lng', 'giodo']
+        fields = ['name', 'email', 'city', 'telephone', 'location', 'lat', 'lng', 'giodo']
