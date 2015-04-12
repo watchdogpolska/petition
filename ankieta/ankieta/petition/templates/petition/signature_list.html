@@ -1,68 +1,60 @@
 {% extends 'petition/base.html' %}
 {% load crispy_forms_tags webdesign %}
 
-{% block css%} 
-{{block.super}}
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<style>#map{
-    width:100%;
-    height:500px;
-}</style>
-{% endblock %}
-
-{% block javascript %}
-
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
-{{block.super}}
-<script>
-    $(function() {
-        map = new L.Map('map');
-
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-    var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});       
-
-    map.setView(new L.LatLng(52.04,19.28), 8);
-    $.getJSON( "{% url 'petition:list' %}?per_page=150").done(function(data){ 
-        $.each(data, function(i, val){
-            var marker = L.marker([val['lat'], val['lng']]).addTo(map);
-            marker.bindPopup(val['name']);
-        });
-    });
-    map.addLayer(osm);
-
-});
-</script>
-{% endblock %}
-
 {% block content %}
-<div class="row">
-    <div class="col-xs-9">
-        {% if object_list %}
-        <h2>Have already signed</h2>
-        <table class="table table-striped">
-            <tr>
-                <th>ID{% include 'petition/_links_sort.html' with column='pk'%}</th>
-                <th>Name{% include 'petition/_links_sort.html' with column='name'%}</th>
-                <th>City{% include 'petition/_links_sort.html' with column='city'%}</th>
-            </tr>
-            {% for object in object_list %}
-            <tr>
-                <td>{{object.pk}} 
-                </td>
-                <td>{{object.name}}</td>
-                <td>{{object.city}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% include 'petition/_pager.html' %}
-        {% endif%}
 
-    </div>
-    <div class="col-xs-3">
-        <span>There is <span class="label label-warning">{{count}}</span> signatures</span>
-        <div id="map"></div>
-        {% lorem 2 p %}
+<div id="voteListBlock" class="block grayBlock">
+    <div class="blockFoldHold"><div class="blockFold"></div><div class="blockFoldClear"></div></div>
+    <div class="blockContent">
+        <h2>Lista podpisów</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Imię i nazwisko{% include 'petition/_links_sort.html' with column='name'%}</th>
+                    <th>Miejscowość{% include 'petition/_links_sort.html' with column='city'%}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                <tr>
+                    <th scope="row">{{ object.pk }}</th>
+                    <td>{{ object.name }}</td>
+                    <td>{{ object.city }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div id="pagination">
+            {% if page_obj.has_previous or page_obj.has_next %}
+            {% if page_obj.has_previous %}
+            <a href="?order_by={{order_by}}&ordering={{ordering}}&page={{page.previous_page_number}}">«</a>
+            {% endif %}
+            {{page_obj.number}} z {{page_obj.paginator.num_pages}}
+            {% if page_obj.has_next %}
+            <a href="?order_by={{order_by}}&ordering={{ordering}}&page={{page_obj.next_page_number}}">»</a>
+            {% endif %}
+            {% endif %}
+        </div>
     </div>
 </div>
+<div class="float-right">
+    <div id="voteBlock" class="block redBlock">
+        <div class="blockFoldHold"><div class="blockFold"></div><div class="blockFoldClear"></div></div>
+        <div class="blockContent">
+            <div id="voteCount">{{count}}</div>
+            <h2>podpisów</h2>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="mapBlock" class="block blackBlock">
+        <div class="blockFoldHold"><div class="blockFold"></div><div class="blockFoldClear"></div></div>
+        <div class="blockContent">
+            <h2>Mapa głosujących</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2577.930737623763!2d18.627214500000004!3d49.749747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47140400baa821ef%3A0x22e2fcd7870a22ea!2smost+Przyja%C5%BAni%2C+43-400+Cieszyn!5e0!3m2!1spl!2spl!4v1428717257297" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+            
+        </div>
+    </div>
+</div>
+
 {% endblock %}

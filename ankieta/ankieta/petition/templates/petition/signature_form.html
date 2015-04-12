@@ -1,15 +1,39 @@
 {% extends 'petition/base.html' %}
 {% load crispy_forms_tags webdesign %}
 {% block content %}
-<div class="row">
-    <div class="col-xs-8">
-    <div class="flex-video widescreen text-center">
-    <iframe allowfullscreen="" src="http://www.youtube.com/embed/zk5qO5eexcU" frameborder="0"></iframe>
+<div class="float-left">
+    <div id="movieBlock" class="block blackBlock">
+        <div class="blockFoldHold"><div class="blockFold"></div><div class="blockFoldClear"></div></div>
+        <div class="blockContent">
+            <h2>Obejrzyj spot</h2>
+            <iframe width="100%" height="275" src="https://www.youtube-nocookie.com/embed/Cf8X_Ep0V9A?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
-        {% lorem 5 p %}
+    <div class="clearfix"></div>
+    <div id="descriptionBlock" class="block grayBlock">
+        <div class="blockFoldHold"><div class="blockFold"></div><div class="blockFoldClear"></div></div>
+        <div class="blockContent">
+            <h2>Opis problemu</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam si amitti vita beata potest, beata esse non potest. <mark>Sullae consulatum?</mark> Tu quidem reddes; Quia nec honesto quic quam honestius nec turpi turpius. Non pugnem cum homine, cur tantum habeat in natura boni; <mark>Sed fortuna fortis;</mark> </p>
+            
+            <p>Duo Reges: constructio interrete. De hominibus dici non necesse est. Tu quidem reddes; Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Sed quid minus probandum quam esse aliquem beatum nec satis beatum? </p>
+            
+            <p>Non potes, nisi retexueris illa. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? <i>Istam voluptatem, inquit, Epicurus ignorat?</i> Quid est enim aliud esse versutum? <a href="http://loripsum.net/" target="_blank">Quis est tam dissimile homini.</a> </p>
+            
+        </div>
     </div>
-    <div class="col-xs-4">
-        {% crispy form %}
+</div>
+<div id="signFormBlock" class="block redBlock">
+    <div class="blockFoldHold"><div class="blockFold"></div><div class="blockFoldClear"></div></div>
+    <div class="blockContent">
+        <h2>Podpisz petycję</h2>
+        <p><b>Do: </b>wszystkich komitetów wyborczych</p>
+        <p>Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.</p>
+        <p>
+            <h3 class="text-center">Twoje dane</h3>
+            <div id="reqNote">Pola oznaczone gwiazdką (*) są wymagane</div>
+            {% crispy form %}
+        </p>
     </div>
 </div>
 {% endblock %}
