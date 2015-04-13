@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.query import QuerySet
 from django.db.models import Q
+from django.utils.translation import ugettext_lazy as _
 
 
 class SignatureQuerySet(QuerySet):
@@ -13,14 +14,14 @@ class SignatureQuerySet(QuerySet):
 
 
 class Signature(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    city = models.CharField(max_length=100)
-    location = models.CharField(max_length=150)
-    telephone = models.CharField(max_length=12, null=True, blank=True)
-    lat = models.FloatField(null=True)
-    lng = models.FloatField(null=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    modified_on = models.DateTimeField(auto_now=True)
-    visible = models.BooleanField(default=True)
+    name = models.CharField(max_length=100, verbose_name=_('Name'))
+    email = models.EmailField(verbose_name=_("E-mail"))
+    city = models.CharField(max_length=100, verbose_name=_("City"))
+    location = models.CharField(max_length=150, verbose_name=_("Location"))
+    telephone = models.CharField(max_length=12, null=True, blank=True, verbose_name=_("Telephone"))
+    lat = models.FloatField(null=True, verbose_name=_("Latitude"))
+    lng = models.FloatField(null=True, verbose_name=_("Longitude"))
+    created_on = models.DateTimeField(auto_now_add=True, verbose_name=_("Created on"))
+    modified_on = models.DateTimeField(auto_now=True, verbose_name=_("Modified on"))
+    visible = models.BooleanField(default=True, verbose_name=_("Visible"))
     objects = SignatureQuerySet.as_manager()
