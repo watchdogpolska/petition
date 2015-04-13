@@ -16,7 +16,7 @@ class TelephoneInput(TextInput):
 class SignatureForm(UserKwargModelFormMixin, ModelForm):
     giodo = forms.BooleanField(widget=forms.CheckboxInput(), required=True,
                                label=settings.AGGREMENT_TEXT)
-    newsletter = forms.BooleanField(widget=forms.CheckboxInput(), required=True,
+    newsletter = forms.BooleanField(widget=forms.CheckboxInput(), required=False,
                                     label=settings.NEWSLETTER_TEXT)
 
     def __init__(self, *args, **kwargs):
