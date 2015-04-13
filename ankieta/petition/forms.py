@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from django import forms
+from django.conf import settings
 from django.forms.widgets import TextInput
 from django.core.urlresolvers import reverse
 from braces.forms import UserKwargModelFormMixin
@@ -14,9 +15,9 @@ class TelephoneInput(TextInput):
 
 class SignatureForm(UserKwargModelFormMixin, ModelForm):
     giodo = forms.BooleanField(widget=forms.CheckboxInput(), required=True,
-                               label="We want process you ID data. Do you accept it?")
+                               label=settings.AGGREMENT_TEXT)
     newsletter = forms.BooleanField(widget=forms.CheckboxInput(), required=True,
-                                    label="Do you want receive newsletter?")
+                                    label=settings.NEWSLETTER_TEXT)
 
     def __init__(self, *args, **kwargs):
         super(SignatureForm, self).__init__(*args, **kwargs)
