@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Lorem ipsum">
 
+    {% block css %}
     <link rel="stylesheet" href="{% static 'css/reset.min.css'%}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://siecobywatelska.pl/font-wybory/MyFontsWebfontsKit.css">
     <link rel="stylesheet" href="{% static 'css/cc-icons.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    {% endblock %}
     <title>Jawna kampania wyborcza</title>
 
 </head>
@@ -47,8 +49,9 @@
     <div id="authorInfo">
         silnik: <a href="http://jawne.info.pl">jawne.info.pl</a> <span>|</span> design: <a href="http://krzysiu.net">krzysiu.net</a>
     </div>
-
+    {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="{% static 'script.js'%}"></script>
+    {% endblock %}
 </body>
 </html>
