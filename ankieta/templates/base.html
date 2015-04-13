@@ -20,38 +20,82 @@
 
 </head>
 
-<body>
-    <div id="container">
-        <header>
+    <body>
+        <div id="container">
+            <header>
             <a href="/"><img src="{% static 'img/watchdog.png'%}" width="259" height="61" alt="Logo Watchdog"></a>
-
-            <nav id="mainMenu">
-                <ul>
+                
+                <nav id="mainMenu">
+                    <ul>
                     <a href="/"><li><i class="fa fa-home fa-2x"></i></li></a>
                     <a href="{% url 'petition:list'%}"><li>Podpisali się</li></a>
-                    <a href="{% url 'django.contrib.flatpages.views.flatpage' url='contact' %}"><li>Kontakt</li></a>
+                    <a href="{% url 'contact' %}"><li>O nas</li></a>
                     <a href="{% url 'django.contrib.flatpages.views.flatpage' url='media' %}"><li>Dla mediów</li></a>
-                </ul>
-            </nav>
-        </header>         
+                    </ul>
+                </nav>
+            </header>
 
-        <div id="contentContainer">
-            <h1>Jawna kampania wyborcza</h1>
-            {% block content %}
-            <p>Use this document as a way to quick start any new project.</p>
-            {% endblock content %}
+            <div id="contentContainer">
+                <h1>Jawna kampania wyborcza</h1>
+                {% block content %}
+                    <p>Use this document as a way to quick start any new project.</p>
+                {% endblock content %}
+            </div>
+            <div class="clearfix"></div>
+            <footer>
+                <div id="footHeaders" class="ffMedium">
+                    <div class="col-md-4 text-left"><span>Autor</span></div>
+                    <div class="col-md-4 text-center"><span>Partnerzy</span></div>
+                    <div class="col-md-4 text-right"><span>Obserwuj nas na</span></div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="footData">             
+                    <div id="contactInfo" class="col-md-4">
+                        <address>
+                            <a href="http://siecobywatelska.pl">Sieć obywatelska - Watchdog Polska</a><br>
+                            <a id="fooBar" href="http://www.google.com/recaptcha/mailhide/d?k=019SfyeYoOBXz-HBQPiC1dMw==&c=7t4uleBGHACWoT6pq8zcubkAl0UxUqb94jcrqtFq5N0="><span>biuro</span></a><br>
+                            +48 22 844 73 55
+                        </address>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+                    </div>
+                    
+                    <div id="footSocialMedia" class="col-md-4 text-right">
+                        <a href="#"><i class="fa fa-facebook-official"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="#"><i class="fa fa-rss"></i></a>
+                    </div>
+                </div>
+                
+                <div class="clearfix"></div>
+                
+                <div id="footBottom">
+                    <div id="footBottomHR"></div>
+                    
+                    <nav id="footBottomLinks">
+                        <ul>
+                            <li><a href="#">Polityka prywatności</a></li>
+                            <li><a href="#">Inny link</a></li>
+                            <li><a href="#">Jeszcze inny link</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div id="license">
+                        Materiały na stronie opublikowane są na licencji <a href="https://creativecommons.org/licenses/by-sa/3.0/pl/" title="Treść licencji CC BY-SA 3.0 PL">CC BY-SA 3.0 PL</a>
+                        <div><i class="cc cc-cc"></i><i class="cc cc-by"></i><i class="cc cc-sa"></i></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
         </div>
-        <div class="clearfix"></div>
-        <footer>
-            {% include '_footer.html' %}
-        </footer>
-    </div>
-    <div id="authorInfo">
-        silnik: <a href="http://jawne.info.pl">jawne.info.pl</a> <span>|</span> design: <a href="http://krzysiu.net">krzysiu.net</a>
-    </div>
+        <div id="authorInfo">
+            silnik: <a href="http://jawne.info.pl">jawne.info.pl</a> <span>|</span> design: <a href="http://krzysiu.net">krzysiu.net</a>
+        </div>
     {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="{% static 'script.js'%}"></script>
     {% endblock %}
-</body>
+    </body>
 </html>
