@@ -1,10 +1,15 @@
 from django.forms import ModelForm
 from django import forms
+from django.forms.widgets import TextInput
+from django.core.urlresolvers import reverse
 from braces.forms import UserKwargModelFormMixin
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-from django.core.urlresolvers import reverse
 from .models import Signature
+
+
+class TelephoneInput(TextInput):
+    input_type = 'tel'
 
 
 class SignatureForm(UserKwargModelFormMixin, ModelForm):
@@ -19,7 +24,8 @@ class SignatureForm(UserKwargModelFormMixin, ModelForm):
         self.helper.form_action = reverse('petition:create')
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Submit', css_class="btn-lg btn-block"))
+        self.fields['telephone'].widget = TelephoneInput()
 
     class Meta:
         model = Signature
-        fields = ['name', 'email', 'city', 'telephone', 'location', 'lat', 'lng', 'giodo']
+        fields = ['name', 'email', 'city', 'telephone', 'giodo']
