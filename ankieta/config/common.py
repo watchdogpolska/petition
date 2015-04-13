@@ -65,6 +65,8 @@ class Common(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'misc.middleware.NoAutoLocaleMiddleware',
+        'django.middleware.locale.LocaleMiddleware',
     )
     # END MIDDLEWARE CONFIGURATION
 
@@ -135,7 +137,7 @@ class Common(Configuration):
     TIME_ZONE = 'UTC'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-    LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = 'pl-PL'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
     SITE_ID = 1
@@ -274,3 +276,11 @@ class Common(Configuration):
         cls.DATABASES['default']['ATOMIC_REQUESTS'] = True
 
     # Your common stuff: Below this line define 3rd party library settings
+    AGGREMENT_TEXT = ("Akceptuję Politykę Prywatności  i wyrażam zgodę na "
+        "przetwarzanie moich danych osobowych w rozumieniu Ustawy o ochronie "
+        "danych osobowych z 29 sierpnia 1997 r. przez Sieć Obywatelską Watchdog "
+        "Polska z siedzibą w Warszawie, ul. Ursynowska 22/2 w celach związanych "
+        "z przekazaniem petycji i informowaniem o niej zarówno mnie, jak i "
+        "publicznie")
+    NEWSLETTER_TEXT = ("Wyrażam zgodę na przesyłanie informacji o działalności "
+        "programowej Sieci Obywatelskiej Watchdog Polska")
