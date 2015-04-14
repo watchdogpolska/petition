@@ -11,9 +11,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^contact/$',
-        TemplateView.as_view(template_name='pages/contact.html'),
-        name="contact"),
+    url(r'^media/$',
+        TemplateView.as_view(template_name='pages/media.html'),
+        name="media"),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
@@ -28,5 +28,6 @@ urlpatterns = patterns('',
     # Your stuff: custom urls go here
     url(r'^', include('petition.urls', namespace='petition')),
     url('^pages/', include('django.contrib.flatpages.urls')),
+    url('^contact/', include('contact.urls', namespace="contact")),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
