@@ -49,6 +49,7 @@ class Common(Configuration):
     LOCAL_APPS = (
         'users',  # custom users app
         'petition',
+        'contact',
         # Your stuff: custom apps go here
     )
 
