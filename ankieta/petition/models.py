@@ -14,7 +14,8 @@ class SignatureQuerySet(QuerySet):
 
 
 class Signature(models.Model):
-    name = models.CharField(max_length=100, verbose_name=_('Name'))
+    first_name = models.CharField(max_length=100, verbose_name=_('First name'))
+    second_name = models.CharField(max_length=100, verbose_name=_('Second name'))
     email = models.EmailField(verbose_name=_("E-mail"))
     city = models.CharField(max_length=100, verbose_name=_("City"))
     location = models.CharField(max_length=150, verbose_name=_("Location"))
@@ -25,3 +26,6 @@ class Signature(models.Model):
     modified_on = models.DateTimeField(auto_now=True, verbose_name=_("Modified on"))
     visible = models.BooleanField(default=True, verbose_name=_("Visible"))
     objects = SignatureQuerySet.as_manager()
+
+    def name(self):
+        return "%s %s" % (self.first_name, self.second_name)

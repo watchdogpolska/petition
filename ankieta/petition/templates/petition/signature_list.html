@@ -28,7 +28,7 @@
         $.getJSON( "{% url 'petition:list_api' %}").done(function(data){ 
             $.each(data, function(i, val){
                 var marker = L.marker([val['lat'], val['lng']]).addTo(map);
-                marker.bindPopup(val['name']);
+                marker.bindPopup(val['first_name']+" "+val['second_name']);
             });
         });
         map.addLayer(osm);

@@ -30,4 +30,4 @@ class SignatureForm(UserKwargModelFormMixin, ModelForm):
 
     class Meta:
         model = Signature
-        fields = ['name', 'email', 'city', 'telephone', 'giodo']
+        fields = ['first_name', 'second_name', 'email', 'city', 'telephone', 'giodo']

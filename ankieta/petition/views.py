@@ -10,7 +10,7 @@ from .forms import SignatureForm
 
 class SignatureList(OrderableListMixin, AjaxResponseMixin, ListView):
     model = Signature
-    orderable_columns = ("pk", "name", "city")
+    orderable_columns = ("pk", "city")
     orderable_columns_default = "created_on"
     ordering = 'desc'
     per_page = 10
@@ -27,7 +27,7 @@ class SignatureList(OrderableListMixin, AjaxResponseMixin, ListView):
 
 class SignatureApiList(ListView):
     model = Signature
-    ajax_fields = ('pk', "name", "city", "lat", "lng")
+    ajax_fields = ('pk', "first_name", "second_name", "city", "lat", "lng")
 
     def get_paginate_by(self, *args, **kwargs):
         if 'per_page' in self.request.GET and self.request.GET['per_page'].isdigit():
