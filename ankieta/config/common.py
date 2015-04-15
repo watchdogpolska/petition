@@ -138,7 +138,7 @@ class Common(Configuration):
     TIME_ZONE = 'UTC'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-    LANGUAGE_CODE = 'pl-PL'
+    LANGUAGE_CODE = 'pl_PL'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
     SITE_ID = 1

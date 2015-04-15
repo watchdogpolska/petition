@@ -20,7 +20,7 @@ class ContactForm(forms.Form):
         self.helper = FormHelper()
         self.helper.form_action = reverse('contact:form')
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit', css_class="btn-lg btn-block"))
+        self.helper.add_input(Submit('submit', _('Send'), css_class="btn-lg btn-block"))
 
     def get_text(self):
         return "%(body)s \n\nE-mail: %(email)s" % self.cleaned_data
