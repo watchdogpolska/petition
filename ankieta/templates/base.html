@@ -63,10 +63,10 @@
                     </div>
                     
                     <div id="footSocialMedia" class="col-md-4 text-right">
-                        <a href="#"><i class="fa fa-facebook-official"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-youtube"></i></a>
-                        <a href="#"><i class="fa fa-rss"></i></a>
+                        <a href="http://facebook.com/SiecObywatelskaWatchdogPolska"><i class="fa fa-facebook-official"></i></a>
+                        <a href="http://twitter.com/SiecObywatelska"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/channel/UC1d-Dkxrw5O9unN5FkB7inw"><i class="fa fa-youtube"></i></a>
+                        {# <a href="#"><i class="fa fa-rss"></i></a> #}
                     </div>
                 </div>
                 
@@ -77,9 +77,8 @@
                     
                     <nav id="footBottomLinks">
                         <ul>
-                            <li><a href="#">Polityka prywatności</a></li>
-                            <li><a href="#">Inny link</a></li>
-                            <li><a href="#">Jeszcze inny link</a></li>
+                            <li><a href="{% url 'django.contrib.flatpages.views.flatpage' url='/privacy/' %}">Polityka prywatności</a></li>
+                            <li><a href="{% url 'django.contrib.flatpages.views.flatpage' url='/law/' %}">Opracowanie prawne</a></li>
                         </ul>
                     </nav>
                     
