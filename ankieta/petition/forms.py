@@ -3,6 +3,7 @@ from django import forms
 from django.conf import settings
 from django.forms.widgets import TextInput
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 from braces.forms import UserKwargModelFormMixin
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -24,7 +25,7 @@ class SignatureForm(UserKwargModelFormMixin, ModelForm):
         self.helper = FormHelper()
         self.helper.form_action = reverse('petition:create')
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit', css_class="btn-lg btn-block"))
+        self.helper.add_input(Submit('submit', _('Sign'), css_class="btn-lg btn-block"))
         self.fields['telephone'].widget = TelephoneInput()
 
     class Meta:
