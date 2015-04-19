@@ -13,7 +13,7 @@ class SignatureList(OrderableListMixin, AjaxResponseMixin, ListView):
     orderable_columns = ("pk", "city")
     orderable_columns_default = "created_on"
     ordering = 'desc'
-    per_page = 10
+    paginate_by = 50
 
     def get_context_data(self, **kwargs):
         context = super(SignatureList, self).get_context_data(**kwargs)
