@@ -184,12 +184,12 @@ form .asteriskField {
     line-height:2em;
 }
 
-.fooBar span:after {
+#fooBar span:after {
     font-family:FontAwesome;
     content:"\f1fa";
 }
 
-.fooBar:after {
+#fooBar:after {
     content:"siecobywatelska.pl";
 }
 
@@ -326,7 +326,6 @@ footer {
 #mediaInfoBlock {
     width:630px;
 }
-
 .has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
     color: #F5FF50;
 }
