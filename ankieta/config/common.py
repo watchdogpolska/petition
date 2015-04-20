@@ -301,6 +301,7 @@ class Common(Configuration):
         'MEDIA_TEXT_2': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of second media text"),
         'MEDIA_TEXT_3': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of third media text"),
         'GITHUB_URL': ("http://google.com", "URL of Github repo with app"),
+        'META_DESCRIPTION': ("Lorem ipsum", "ASCII Meta and Facebook description"),
     }
     CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
     CONSTANCE_DATABASE_CACHE_BACKEND = 'default'

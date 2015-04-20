@@ -6,7 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Lorem ipsum">
+    <meta name="description" content="{{config.META_DESCRIPTION}}">
+    <meta property="og:site_name" content="{{config.PAGE_NAME}}"/>
+    <meta property="og:description" content="{{config.META_DESCRIPTION}}" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{% static 'img/facebook.jpg'%}" />
 
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/reset.min.css'%}">
@@ -23,7 +27,7 @@
     <body>
         <div id="container">
             <header>
-            <a href="/"><img src="{% static 'img/watchdog.png'%}" width="259" height="61" alt="Logo Watchdog"></a>
+            <a href="http://siecobywatelska.pl"><img src="{% static 'img/watchdog.png'%}" width="259" height="61" alt="Logo Watchdog"></a>
                 
                 <nav id="mainMenu">
                     <ul>
