@@ -10,7 +10,7 @@ Production Configurations
 from os.path import join
 import os
 from configurations import values
-from .common import Common
+from .common import Common, BASE_DIR
 
 
 class Production(Common):
@@ -129,4 +129,4 @@ class Production(Common):
     # END CACHING
 
     # Your production stuff: Below this line define 3rd party library settings
-    MEDIA_ROOT = join(os.path.dirname(Common.BASE_DIR), '../media')
+    MEDIA_ROOT = join(os.path.dirname(BASE_DIR), '../media')
