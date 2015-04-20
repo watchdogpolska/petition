@@ -1,97 +1,89 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id="contactInfoBlock">
-     <div class="block grayBlock">
-      <div class="blockFoldHold">
-       <div class="blockFold"></div>
-       <div class="blockFoldClear"></div>
-     </div>
-     <div class="blockContent">
-       <h2>
-        Kontakt
-      </h2>
-      <h3>
-        Koordynator projektu
-      </h3>
-      <address>
-        <i class="fa fa-envelope fa-fw"></i> 
-        <a class="fooBar" href="http://www.google.com/recaptcha/mailhide/d?k=019SfyeYoOBXz-HBQPiC1dMw==&c=n2luU5mPbHzPitgNjd8j2XKcA0jsnCKbdwK9fCkXEJk="><span>adam.sawicki</span></a>
-        <br>
-        <i class="fa fa-phone fa-fw"></i> 22 844 73 55 
-      </address>
-      <h3>
-        Nasze biuro
-      </h3>
-      <address>
-        <i class="fa fa-envelope fa-fw"></i> 
-        <a class="fooBar" href="http://www.google.com/recaptcha/mailhide/d?k=019SfyeYoOBXz-HBQPiC1dMw==&c=7t4uleBGHACWoT6pq8zcubkAl0UxUqb94jcrqtFq5N0="><span>biuro</span></a>
-        <br>
-        <i class="fa fa-phone fa-fw"></i> 22 844 73 55 
-      </address>
+<div id="contactInfoBlock">
+    <div class="block grayBlock">
+        <div class="blockFoldHold">
+            <div class="blockFold"></div>
+            <div class="blockFoldClear"></div>
+        </div>
+        <div class="blockContent">
+            <h2>
+                Kontakt
+            </h2>
+            <h3>
+                Koordynator projektu
+            </h3>
+            <address>
+                <i class="fa fa-envelope fa-fw"></i> 
+                <a class="fooBar" href="http://www.google.com/recaptcha/mailhide/d?k=019SfyeYoOBXz-HBQPiC1dMw==&c=n2luU5mPbHzPitgNjd8j2XKcA0jsnCKbdwK9fCkXEJk="><span>adam.sawicki</span></a>
+                <br>
+                <i class="fa fa-phone fa-fw"></i> 22 844 73 55 
+            </address>
+            <h3>
+                Nasze biuro
+            </h3>
+            <address>
+                <i class="fa fa-envelope fa-fw"></i> 
+                <a class="fooBar" href="http://www.google.com/recaptcha/mailhide/d?k=019SfyeYoOBXz-HBQPiC1dMw==&c=7t4uleBGHACWoT6pq8zcubkAl0UxUqb94jcrqtFq5N0="><span>biuro</span></a>
+                <br>
+                <i class="fa fa-phone fa-fw"></i> 22 844 73 55 
+            </address>
+        </div>
     </div>
-  </div>
-  <div class="clearfix"></div>
-  <div class="block grayBlock">
-    <div class="blockFoldHold">
-     <div class="blockFold"></div>
-     <div class="blockFoldClear"></div>
-   </div>
-   <div class="blockContent">
-     <h2>
-      Adres
-    </h2>
-    <address>
-      <b>SieÄ‡ obywatelska - Watchdog Polska</b>
-      <br>
-      ul. Ursynowska 22/2
-      <br>
-      02-605 Warszawa 
-    </address>
-  </div>
+    <div class="clearfix"></div>
+    <div class="block grayBlock">
+        <div class="blockFoldHold">
+            <div class="blockFold"></div>
+            <div class="blockFoldClear"></div>
+        </div>
+        <div class="blockContent">
+            <h2>
+                Adres
+            </h2>
+            <address>
+                <b>Sieć obywatelska - Watchdog Polska</b>
+                <br>
+                ul. Ursynowska 22/2
+                <br>
+                02-605 Warszawa 
+            </address>
+        </div>
+    </div>
 </div>
-</div>
+
 <div id="mediaInfoBlock">
- <div class="block redBlock">
-  <div class="blockFoldHold">
-   <div class="blockFold"></div>
-   <div class="blockFoldClear"></div>
- </div>
- <div class="blockContent">
-   <h2>
-    Tekst pierwszy
-  </h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam si amitti vita beata potest, beata esse non potest. Sullae consulatum? Tu quidem reddes; Quia nec honesto quic quam honestius nec turpi turpius. Non pugnem cum homine, cur tantum habeat in natura boni; Sed fortuna fortis; </p>
-  <p>Non potes, nisi retexueris illa. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? <i>Istam voluptatem, inquit, Epicurus ignorat?</i> Quid est enim aliud esse versutum? <a href="http://loripsum.net/" target="_blank">Quis est tam dissimile homini.</a> </p>
+    {% if config.MEDIA_TEXT_1 %}
+    <div class="block redBlock">
+        <div class="blockFoldHold">
+            <div class="blockFold"></div>
+            <div class="blockFoldClear"></div>
+        </div>
+        <div class="blockContent">
+            {{ config.MEDIA_TEXT_1 | safe}}
+        </div>
+    </div>
+    {% endif %}
+    {% if config.MEDIA_TEXT_2 %}
+    <div class="block blackBlock">
+        <div class="blockFoldHold">
+            <div class="blockFold"></div>
+            <div class="blockFoldClear"></div>
+        </div>
+        <div class="blockContent">
+            {{ config.MEDIA_TEXT_2 | safe }}
+        </div>
+    </div>
+    {% endif %}
+    {% if config.MEDIA_TEXT_2 %}
+    <div class="block blackBlock">
+        <div class="blockFoldHold">
+            <div class="blockFold"></div>
+            <div class="blockFoldClear"></div>
+        </div>
+        <div class="blockContent">
+            {{ config.MEDIA_TEXT_3 | safe }}
+        </div>
+    </div>
+    {% endif %}
 </div>
-</div>
-<div class="block blackBlock">
-  <div class="blockFoldHold">
-   <div class="blockFold"></div>
-   <div class="blockFoldClear"></div>
- </div>
- <div class="blockContent">
-   <h2>
-    Tekst inny
-  </h2>
-  <p>Duo Reges: constructio interrete. De hominibus dici non necesse est. Tu quidem reddes; Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Sed quid minus probandum quam esse aliquem beatum nec satis beatum? </p>
-  <p>Non potes, nisi retexueris illa. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? <i>Istam voluptatem, inquit, Epicurus ignorat?</i> Quid est enim aliud esse versutum?</p>
-</div>
-</div>
-<div class="block blackBlock">
-  <div class="blockFoldHold">
-   <div class="blockFold"></div>
-   <div class="blockFoldClear"></div>
- </div>
- <div class="blockContent">
-   <h2>
-    Tekst n-ty
-  </h2>
-  <p>Duo Reges: constructio interrete. <a href="http://loripsum.net/" target="_blank">Quis est tam dissimile homini.</a> De hominibus dici non necesse est. Tu quidem reddes; Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Sed quid minus probandum quam esse aliquem beatum nec satis beatum? </p>
-  <p>
-    Non potes, nisi retexueris illa. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? <i>Istam voluptatem, inquit, Epicurus ignorat?</i> Quid est enim aliud esse versutum? <a href="http://loripsum.net/" target="_blank">Quis est tam dissimile homini.</a> 
-    <p>Duo Reges: constructio interrete. <a href="http://loripsum.net/" target="_blank">Quis est tam dissimile homini.</a> De hominibus dici non necesse est. Tu quidem reddes; Cum autem in quo sapienter dicimus, id a primo rectissime dicitur. Sed quid minus probandum quam esse aliquem beatum nec satis beatum? </p>
-    <p>Non potes, nisi retexueris illa. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? <i>Istam voluptatem, inquit, Epicurus ignorat?</i> Quid est enim aliud esse versutum? <a href="http://loripsum.net/" target="_blank">Quis est tam dissimile homini.</a> </p>
-  </div>
-</div>
-</div>
-{% endblock %}
+    {% endblock %}

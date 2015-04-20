@@ -39,6 +39,8 @@ class Common(Configuration):
     )
     THIRD_PARTY_APPS = (
         'crispy_forms',  # Form layouts
+        'constance',
+        'constance.backends.database',
         # 'avatar',  # for user avatars
         # 'allauth',  # registration
         # 'allauth.account',  # registration
@@ -123,8 +125,8 @@ class Common(Configuration):
     # memcacheify (used on heroku) is painful to install on windows.
     CACHES = {
         'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-            'LOCATION': ''
+            'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+            'LOCATION': '/var/tmp/django_cache'
         }
     }
     # END CACHING
@@ -166,6 +168,7 @@ class Common(Configuration):
         'django.core.context_processors.tz',
         'django.contrib.messages.context_processors.messages',
         'django.core.context_processors.request',
+        'constance.context_processors.config',
         # Your stuff: custom template context processors go here
     )
 
@@ -277,11 +280,27 @@ class Common(Configuration):
         cls.DATABASES['default']['ATOMIC_REQUESTS'] = True
 
     # Your common stuff: Below this line define 3rd party library settings
-    AGGREMENT_TEXT = ("Akceptuję Politykę Prywatności  i wyrażam zgodę na "
+    CONSTANCE_CONFIG = {
+        'AGGREMENT_TEXT': ("Akceptuję Politykę Prywatności  i wyrażam zgodę na "
         "przetwarzanie moich danych osobowych w rozumieniu Ustawy o ochronie "
         "danych osobowych z 29 sierpnia 1997 r. przez Sieć Obywatelską Watchdog "
         "Polska z siedzibą w Warszawie, ul. Ursynowska 22/2 w celach związanych "
         "z przekazaniem petycji i informowaniem o niej zarówno mnie, jak i "
-        "publicznie")
-    NEWSLETTER_TEXT = ("Wyrażam zgodę na przesyłanie informacji o działalności "
-        "programowej Sieci Obywatelskiej Watchdog Polska")
+        "publicznie", 'Text of aggrement in submission form of "ankieta"'),
+        "NEWSLETTER_TEXT": ("Wyrażam zgodę na przesyłanie informacji o działalności "
+        "programowej Sieci Obywatelskiej Watchdog Polska", "Text of newsletter confirmation"),
+        "SUCCESS_CONTACT": ("<p>Dziękujemy za wiadomość. Postaramy się udzielić "
+            "odpowiedzi tak szybko jak to możliwe.</p>", "Text of success text in contact form"),
+        "PAGE_NAME": ("Jawna kampania wyborcza", "ASCII name of page"),
+        'ISSUE_SPOT': ("<p>Lorem ipsum</p>", "HTML code of video about petition"),
+        'ISSUE_DESCRIPTION': ("<p>Lorem ipsum</p>", "HTML code of description of petition"),
+        'LETTER_TEXT': ("<p><b>To:</b>Lorem</p><p>ipsum</p>", "HTML code of letter with recipient"),
+        'LETTER_THANK_YOU': ("<p>Lorem ipsum</p>", "HTML code of thank you text"),
+        'FOOTER_TEXT': ("<p>Lorem ipsum</p>", "HTML code of partners data"),
+        'MEDIA_TEXT_1': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of first media text"),
+        'MEDIA_TEXT_2': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of second media text"),
+        'MEDIA_TEXT_3': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of third media text"),
+        'GITHUB_URL': ("http://google.com", "URL of Github repo with app"),
+    }
+    CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+    CONSTANCE_DATABASE_CACHE_BACKEND = 'default'

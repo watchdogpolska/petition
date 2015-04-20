@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from django.core.urlresolvers import reverse
 from braces.views import OrderableListMixin, AjaxResponseMixin
-from json import dumps
 from .models import Signature
 from .forms import SignatureForm
 
