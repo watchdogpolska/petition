@@ -13,7 +13,6 @@ pip-log.txt
 nosetests.xml
 
 # Translations
-*.mo
 *.pot
 
 # Pycharm
