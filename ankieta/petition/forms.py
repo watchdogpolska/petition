@@ -16,7 +16,6 @@ class TelephoneInput(TextInput):
 
 class SignatureForm(UserKwargModelFormMixin, ModelForm):
     giodo = forms.BooleanField(widget=forms.CheckboxInput(), required=True)
-    newsletter = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
 
     def __init__(self, *args, **kwargs):
         super(SignatureForm, self).__init__(*args, **kwargs)
@@ -30,4 +29,4 @@ class SignatureForm(UserKwargModelFormMixin, ModelForm):
 
     class Meta:
         model = Signature
-        fields = ['first_name', 'second_name', 'email', 'city', 'telephone', 'giodo']
+        fields = ['first_name', 'second_name', 'email', 'city', 'telephone', 'giodo', 'newsletter']

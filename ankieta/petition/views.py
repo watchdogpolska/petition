@@ -10,8 +10,7 @@ from .forms import SignatureForm
 class SignatureList(OrderableListMixin, AjaxResponseMixin, ListView):
     model = Signature
     orderable_columns = ("pk", "city")
-    orderable_columns_default = "created_on"
-    ordering = 'desc'
+    orderable_columns_default = "-pk"
     paginate_by = 50
 
     def get_context_data(self, **kwargs):
