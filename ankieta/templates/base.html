@@ -51,7 +51,7 @@
             </footer>
         </div>
         <div id="authorInfo">
-            silnik: <a href="http://jawne.info.pl">jawne.info.pl</a> | {% if config.GITHUB_URL %}<a href="{{config.GITHUB_URL}}">Github</a>{% endif %}
+            silnik: <a href="http://jawne.info.pl">jawne.info.pl</a>{% if config.GITHUB_URL %} | <a href="{{config.GITHUB_URL}}">Github</a>{% endif %}
         </div>
     {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
