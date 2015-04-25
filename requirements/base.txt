@@ -37,3 +37,4 @@ pytz==2015.2
 
 # Your custom requirements go here
 django-constance[database]
+https://github.com/watchdogpolska/one-petition/archive/0.1.zip

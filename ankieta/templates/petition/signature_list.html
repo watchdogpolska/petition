@@ -24,7 +24,7 @@
         var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
         var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});
 
-        map.setView(new L.LatLng(52.04,19.28), 8);
+        map.setView(new L.LatLng(54.26, 21.137), 5);
         $.getJSON( "{% url 'petition:list_api' %}").done(function(data){ 
             $.each(data, function(i, val){
                 var marker = L.marker([val['lat'], val['lng']]).addTo(map);
