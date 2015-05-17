@@ -41,17 +41,14 @@ class Common(Configuration):
         'crispy_forms',  # Form layouts
         'constance',
         'constance.backends.database',
-        # 'avatar',  # for user avatars
-        # 'allauth',  # registration
-        # 'allauth.account',  # registration
-        # 'allauth.socialaccount',  # registration
+        'import_export',  # required by django-one-petition
+        'petition',
+        'contact',
     )
 
     # Apps specific for this project go here.
     LOCAL_APPS = (
         'users',  # custom users app
-        'petition',
-        'contact',
         # Your stuff: custom apps go here
     )
 
