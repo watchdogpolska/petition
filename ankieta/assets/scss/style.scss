@@ -50,7 +50,16 @@ $body-bg: #F7F7F7;
 		}
 		@media (min-width:992px){
 			display: flex;
-			justify-content:  flex-end;
+			justify-content:  center;
+			.item-petition{
+				order: 1;
+			}
+			.item-home{
+				order: 2;
+			}
+			.item-petition{
+				order: 3;
+			}
 		}
 	}
 	// @media (min-width:1200px){
@@ -75,10 +84,7 @@ $card-light-fold: darken($card-light-bg, 10%);
 $card-dark-bg: $brand-gray;
 $card-dark-text: white;
 $card-dark-fold: lighten($card-dark-bg, 20%);
-/*!
 
-testAAAA
-*/
 .card{
 	position: relative;
 	margin: $card-margin;
