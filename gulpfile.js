@@ -1,5 +1,5 @@
 var
-    fs        = require('fs'), 
+    fs          = require('fs'), 
     gulp        = require('gulp'), 
     sass        = require('gulp-ruby-sass') ,
     notify      = require("gulp-notify"), 
@@ -63,7 +63,7 @@ gulp.task('scss', function() { 
                  config.bowerDir + '/fontawesome/scss',
                  config.scssDir
             ], 
-              sourcemap: true,
+        //       sourcemap: true,
                trace: true
          })        
         .on('error', function (err) {
@@ -72,10 +72,10 @@ gulp.task('scss', function() { 
         //  .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
         // .pipe(csslint())
         // .pipe(csslint.reporter())
-        .pipe(sourcemaps.write())
+        // .pipe(sourcemaps.write())
          .pipe(gulp.dest(config.cssDir))
         .pipe(rename({suffix: '.min' }))
-        // .pipe(minifyCss())
+        .pipe(minifyCss())
          .pipe(gulp.dest(config.cssDir))
           .pipe(livereload()); 
 });
