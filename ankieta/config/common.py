@@ -319,6 +319,8 @@ class Common(Configuration):
         'MEDIA_TEXT_1': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of first media text"),
         'MEDIA_TEXT_2': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of second media text"),
         'MEDIA_TEXT_3': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of third media text"),
+        'CONTACT_BLOCK_1': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of first media block"),
+        'CONTACT_BLOCK_2': ("<h2>Lorem</h2><p>ipsum</p>", "HTML code of second media block"),
         'GITHUB_URL': ("http://google.com", "URL of Github repo with app"),
         'META_DESCRIPTION': ("Lorem ipsum", "ASCII Meta and Facebook description"),
     }

@@ -4,26 +4,16 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-12 col-md-6">
+        {% if config.CONTACT_BLOCK_1 %}
         <div class="card card-light">
-            <h2>Kontakt</h2>    
-            <h3>Nasze biuro</h3>
-            <address>
-                <i class="fa fa-envelope fa-fw"></i> 
-                <a class="fooBar" href="http://www.google.com/recaptcha/mailhide/d?k=019SfyeYoOBXz-HBQPiC1dMw==&amp;c=7t4uleBGHACWoT6pq8zcubkAl0UxUqb94jcrqtFq5N0="><span>biuro</span></a>
-                <br>
-                <i class="fa fa-phone fa-fw"></i> 22 844 73 55 
-            </address>
+            {{ config.CONTACT_BLOCK_1 | safe}}
         </div>
+        {% endif %}
+        {% if config.CONTACT_BLOCK_2 %}
         <div class="card card-light">
-            <h2>Adres</h2>
-            <address>
-                <b>Sieć obywatelska - Watchdog Polska</b>
-                <br>
-                ul. Ursynowska 22/2
-                <br>
-                02-605 Warszawa 
-            </address>
+            {{ config.CONTACT_BLOCK_2 | safe}}
         </div>
+        {% endif %}
     </div>
     <div class="col-sm-12 col-md-6">
         <div class="card card-brand">
