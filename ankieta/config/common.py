@@ -41,6 +41,7 @@ class Common(Configuration):
         'crispy_forms',  # Form layouts
         'constance',
         'constance.backends.database',
+        'import_export', # Export in django-one-petition
         # 'avatar',  # for user avatars
         # 'allauth',  # registration
         # 'allauth.account',  # registration
