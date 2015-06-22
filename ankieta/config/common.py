@@ -281,38 +281,40 @@ class Common(Configuration):
 
     # Your common stuff: Below this line define 3rd party library settings
     CONSTANCE_CONFIG = {
-        'AGGREMENT_TEXT': 
+        'AGGREMENT_TEXT':
             ("Akceptuję Politykę Prywatności i wyrażam zgodę na "
                 "przetwarzanie moich danych osobowych w rozumieniu "
                 "Ustawy o ochronie danych osobowych z 29 sierpnia 1997 r. "
                 "przez Sieć Obywatelską Watchdog Polska z siedzibą w "
                 "Warszawie, ul. Ursynowska 22/2 w celach związanych z "
                 "przekazaniem petycji i informowaniem o niej zarówno mnie, "
-                "jak i publicznie.", 
+                "jak i publicznie.",
                 'Text of aggrement in submission form of "ankieta"'),
-        "NEWSLETTER_TEXT": 
+        "NEWSLETTER_TEXT":
             ("Wyrażam zgodę na przesyłanie informacji o działalności "
-                "programowej Sieci Obywatelskiej Watchdog Polska", 
+                "programowej Sieci Obywatelskiej Watchdog Polska",
                 "Text of newsletter confirmation"),
-        "SUCCESS_CONTACT": 
+        "SUCCESS_CONTACT":
             ("<p>Dziękujemy za wiadomość. Postaramy się udzielić "
-                "odpowiedzi tak szybko jak to możliwe.</p>", 
+                "odpowiedzi tak szybko jak to możliwe.</p>",
                 "Text of success text in contact form"),
-        "PAGE_NAME": 
-            ("Adam Bodnar Rzecznikiem Praw Obywatelskich!", 
+        "PAGE_NAME":
+            ("Adam Bodnar Rzecznikiem Praw Obywatelskich!",
                 "ASCII name of page"),
-        'FORM_BLOCK_1': 
+        'FORM_BLOCK_1':
             ("<h2>Lorem ipsum.</h2><p>Lorem ipsum dolor sit amet, "
-                "consectetur adipisicing.</p>", 
+                "consectetur adipisicing.</p>",
                 "HTML code of first block on form page"),
-        'FORM_BLOCK_2': 
+        'FORM_BLOCK_2':
             ("<h2>Lorem ipsum.</h2><p>Lorem ipsum dolor sit amet, "
-                "consectetur adipisicing.</p>", 
+                "consectetur adipisicing.</p>",
                 "HTML code of second block on form page"),
 
-        'LETTER_TEXT': ("<p><b>To:</b>Lorem</p><p>ipsum</p>", "HTML code of letter with recipient"),
+        'LETTER_TEXT':
+            ("<h2>Podpisz</h2><p><b>To:</b>Lorem</p><p>ipsum</p>",
+             "HTML code of letter with recipient"),
         'LETTER_THANK_YOU': ("<p>Lorem ipsum</p>", "HTML code of thank you text"),
-        'LIST_BLOCK': 
+        'LIST_BLOCK':
             ("<h2>Mapa głosujących</h2><div id=\"map\"></div>",
                 "HTML code of block on list page. Use "
                 "<div id=\"map\"></div> if you want to display map"),
