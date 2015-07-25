@@ -311,9 +311,10 @@ class Common(Configuration):
             ("<h2>Lorem ipsum.</h2><p>Lorem ipsum dolor sit amet, "
                 "consectetur adipisicing.</p>",
                 "HTML code of second block on form page"),
-
         'NEWSLETTER_DEFAULT': (True, "Default checked or not newsletter aggrement"),
-        'LETTER_TEXT': ("<p><b>To:</b>Lorem</p><p>ipsum</p>", "HTML code of letter with recipient"),
+        'LETTER_TEXT':
+            ("<h2>Podpisz</h2><p><b>To:</b>Lorem</p><p>ipsum</p>",
+             "HTML code of letter with recipient"),
         'LETTER_THANK_YOU': ("<p>Lorem ipsum</p>", "HTML code of thank you text"),
         'LIST_BLOCK':
             ("<h2>Mapa głosujących</h2><div id=\"map\"></div>",
