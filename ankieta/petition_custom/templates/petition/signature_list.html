@@ -43,6 +43,12 @@
             <h2>
                 Lista podpisów
             </h2>
+            {% if petitions|length >= 2 %}
+            {% for p in petitions %}
+                {{p}}(<a href="{{p.get_absolute_url}}">Treść</a>, <a href="{% url 'petition:list' slug=p.slug%}"> {{p.signature_count}} podpisów</a>)
+            {% endfor %}
+            {% endif %}
+
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -80,7 +86,7 @@
             <h2 class="text-center">podpisów</h2>
         </div>
         <div class="card card-dark">
-            {{ config.LIST_BLOCK | safe }}
+            {{petition.read_text | safe}}
         </div>
 
     </div>

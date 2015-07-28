@@ -41,7 +41,8 @@ class Common(Configuration):
         'crispy_forms',  # Form layouts
         'constance',
         'constance.backends.database',
-        'import_export', # Export in django-one-petition
+        'import_export',  # Export in django-one-petition
+        'petition',
         # 'avatar',  # for user avatars
         # 'allauth',  # registration
         # 'allauth.account',  # registration
@@ -51,13 +52,13 @@ class Common(Configuration):
     # Apps specific for this project go here.
     LOCAL_APPS = (
         'users',  # custom users app
-        'petition',
+        'petition_custom',
         'contact',
         # Your stuff: custom apps go here
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-    INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+    INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DJANGO_APPS
     # END APP CONFIGURATION
 
     # MIDDLEWARE CONFIGURATION
@@ -330,3 +331,4 @@ class Common(Configuration):
     }
     CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
     CONSTANCE_DATABASE_CACHE_BACKEND = 'default'
+    PETITION_PETITION_MODEL = 'petition_custom.Petition'
