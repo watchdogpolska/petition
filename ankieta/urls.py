@@ -16,7 +16,7 @@ urlpatterns = patterns('',
 
     url(r'^$', views.CustomSignatureCreate.as_view()),
     url(r'^', include('petition.urls', namespace='petition')),
-    url(r'^', include('django.contrib.flatpages.urls')),
     url(r'^contact', include('contact.urls', namespace="contact")),
+    url(r'^', include('django.contrib.flatpages.urls')),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
