@@ -130,3 +130,8 @@ class Production(Common):
 
     # Your production stuff: Below this line define 3rd party library settings
     MEDIA_ROOT = join(os.path.dirname(BASE_DIR), '../media')
+    RAVEN_DNS = values.Value()
+    RAVEN_CONFIG = {
+        'dsn': RAVEN_DNS,
+    }
+    INSTALLED_APPS += ('raven.contrib.django.raven_compat',)

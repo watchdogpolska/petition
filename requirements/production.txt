@@ -8,3 +8,4 @@ Collectfast==0.2.1
 gevent==1.0.1
 boto==2.37.0
 django-redis==3.8.3
+raven==5.5.0
