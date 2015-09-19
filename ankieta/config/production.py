@@ -99,12 +99,9 @@ class Production(Common):
     # EMAIL
     DEFAULT_FROM_EMAIL = values.Value('ankieta <noreply@prezydent.siecobywatelska.pl>')
     EMAIL_HOST = values.Value()
-    EMAIL_HOST_PASSWORD = values.SecretValue()
-    EMAIL_HOST_USER = values.Value()
-    EMAIL_PORT = values.IntegerValue(587)
+    EMAIL_PORT = values.IntegerValue(25)
     EMAIL_SUBJECT_PREFIX = values.Value('[ankieta] ', environ_name="EMAIL_SUBJECT_PREFIX")
-    EMAIL_USE_TLS = True
-    SERVER_EMAIL = EMAIL_HOST_USER
+    SERVER_EMAIL = values.Value()
     # END EMAIL
 
     # TEMPLATE CONFIGURATION
