@@ -2,10 +2,10 @@
 #	production that isn't in development.
 -r base.txt
 
-gunicorn==19.3.0
-django-storages==1.1.8
-Collectfast==0.2.1
-gevent==1.0.1
-boto==2.37.0
-django-redis==3.8.3
-raven==5.5.0
+gunicorn==19.6.0
+django-storages==1.5.1
+Collectfast==0.2.3
+gevent==1.1.2
+boto==2.42.0
+django-redis==4.4.4
+raven==5.27.1
