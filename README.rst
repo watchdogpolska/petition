@@ -3,8 +3,7 @@ ankieta
 
 Jawność kampanii wyborczej
 
-
-LICENSE: BSD
+This is DEPRECATED software. See https://github.com/watchdogpolska/petycja-norweskie for alternative.
 
 Settings
 ------------
