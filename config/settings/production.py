@@ -32,7 +32,9 @@ INSTALLED_APPS += ("gunicorn", )
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL',
                          default='ankieta <noreply@prezydent.siecobywatelska.pl>')
 EMAIL_SUBJECT_PREFIX = env('EMAIL_SUBJECT_PREFIX', default='[ankieta] ')
-SERVER_EMAIL = values.Value()
+EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://user@:password@localhost:25')
+
+vars().update(EMAIL_CONFIG)
 # END EMAIL
 
 # TEMPLATE CONFIGURATION
