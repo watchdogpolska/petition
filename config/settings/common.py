@@ -15,7 +15,7 @@ from os.path import join, dirname
 import environ
 env = environ.Env()
 
-BASE_DIR = (environ.Path(__file__) - 2)()
+BASE_DIR = environ.Path(__file__) - 3
 
 # APP CONFIGURATION
 DJANGO_APPS = (
@@ -88,7 +88,7 @@ SECRET_KEY = env('SECRET_KEY', default='CHANGEME!!!')
 # FIXTURE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
 FIXTURE_DIRS = (
-    join(BASE_DIR, 'fixtures'),
+    BASE_DIR('fixtures'),
 )
 # END FIXTURE CONFIGURATION
 
@@ -156,6 +156,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
+    # 'ankieta.misc.middleware.NoAutoLocaleMiddleware',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'constance.context_processors.config',
@@ -164,7 +165,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
-    join(BASE_DIR, 'templates'),
+    BASE_DIR('templates'),
+    BASE_DIR('ankieta/templates'),
 )
 
 TEMPLATE_LOADERS = (
@@ -178,7 +180,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = join(os.path.dirname(BASE_DIR), 'staticfiles')
+STATIC_ROOT = BASE_DIR('staticfiles')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
@@ -186,7 +188,7 @@ STATIC_URL = '/static/'
 # See:
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-#    join(BASE_DIR, 'static'),
+    BASE_DIR('ankieta/static'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -198,7 +200,7 @@ STATICFILES_FINDERS = (
 
 # MEDIA CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR('media')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = '/media/'
@@ -208,7 +210,7 @@ MEDIA_URL = '/media/'
 ROOT_URLCONF = 'ankieta.urls'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 # End URL Configuration
 
 # AUTHENTICATION CONFIGURATION
@@ -320,4 +322,4 @@ CONSTANCE_DATABASE_CACHE_BACKEND = 'default'
 PETITION_PETITION_MODEL = 'petition_custom.Petition'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-PETITION_SIGNATURE_FORM = 'django.forms.ModelForm'
+PETITION_SIGNATURE_FORM = 'ankieta.petition_custom.forms.SignatureForm'

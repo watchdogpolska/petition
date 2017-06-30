@@ -33,4 +33,3 @@ application = get_wsgi_application()
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
 application = Sentry(application)
-
